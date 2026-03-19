@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pathfinding System</title>
+
+  <!-- Mobile Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f9;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 10px;
+    }
+
+    #controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    select, button {
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #007bff;
+      color: white;
+    }
+
+    #metrics {
+      margin: 10px auto;
+      padding: 12px;
+      max-width: 400px;
+      text-align: center;
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 14px;
+    }
+
+    #map {
+      height: 75vh;
+      width: 100%;
+    }
+
+    .legend {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>🚀 Pathfinding Algorithm Visualizer</h2>
+
+<div id="controls">
+  <select id="algorithm">
+    <option value="dijkstra">Dijkstra</option>
+    <option value="astar">A*</option>
+    <option value="ara">ARA*</option>
+    <option value="theta">Theta*</option>
+    <option value="dstar">D* Lite</option>
+    <option value="fieldd">Field D*</option>
+    <option value="adstar">AD*</option>
+  </select>
+
+  <button onclick="runAlgorithm()">Find Path</button>
+  <button onclick="resetMap()">Reset</button>
+</div>
+
+<div id="metrics">
+  <b>Click map to set START point</b>
+</div>
+
+<div id="map"></div>
+
+<!-- Legend -->
+<div class="legend">
+  <b>Controls:</b><br>
+  Left Click → Set Start & End<br>
+  Right Click → Add Obstacle<br>
+  <br>
+  <b>Colors:</b><br>
+  🔴 Final Path<br>
+  ⚫ Obstacle<br>
+  ⚪ Explored Nodes
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Main Script -->
+<script src="script.js"></script>
+
+</body>
+</html>
